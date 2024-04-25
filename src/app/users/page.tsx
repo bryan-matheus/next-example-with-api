@@ -6,9 +6,9 @@ import { useUsers } from "@/hooks/useUsers";
 export default function AllUsersPage() {
   const { users, error, isLoading } = useUsers();
 
-  if (error || !users) return <div>Failed to load users</div>
-
-  if (isLoading) return <div>loading...</div>
+  if (isLoading) return <div className="flex min-h-screen flex-col items-center justify-between p-24">Loading...</div>
+  if (error) return <div className="flex min-h-screen flex-col items-center justify-between p-24">Failed to load users</div>
+  if (!users) return <div className="flex min-h-screen flex-col items-center justify-between p-24">Failed to load users</div>
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
